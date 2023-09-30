@@ -13,8 +13,7 @@ services:
   fooocus-mre:
     build:
       context: .
-      dockerfile: docker/Dockerfile
-    container_name: fooocus-mre
+      dockerfile: docker/Dockerfile.Fooocus-MRE
     user: vscode
     deploy:
       resources:
@@ -32,11 +31,39 @@ services:
       - ~/.vscode-server-insiders:/home/vscode/.vscode-server-insiders
       - ~/.codeium/:/home/vscode/.codeium
       # ====================================================================
-      - ./source:/workspace/FooocusMRE
+      - ./FooocusMRE:/workspace/FooocusMRE
       - ./mount/repositories/:/workspace/FooocusMRE/repositories:ro
       - ./mount/models:/workspace/FooocusMRE/models:ro
-      - ./mount/launch.py:/workspace/FooocusMRE/launch.py:ro
+      - ./mount/fooocus-mre-launch.py:/workspace/FooocusMRE/launch.py:ro
       - ./mount/outputs:/workspace/FooocusMRE/outputs:rw
     ports:
       - 7860:7860
     command: python launch.py
+
+  comfy-ui:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.ComfyUI
+    user: vscode
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              # 该参数必须出现
+              count: all
+              capabilities: [gpu]
+    working_dir: /workspace/ComfyUI
+    volumes:
+      - /mnt:/mnt
+      - ~/.cache:/home/vscode/.cache
+      - ~/.vscode-server:/home/vscode/.vscode-server
+      - ~/.vscode-server-insiders:/home/vscode/.vscode-server-insiders
+      - ~/.codeium/:/home/vscode/.codeium
+      # ====================================================================
+      - ./ComfyUI:/workspace/ComfyUI
+      - ./mount/models:/workspace/ComfyUI/models:ro
+      - ./mount/outputs:/workspace/ComfyUI/output:rw
+    ports:
+      - 8188:8188
+    command: python main.py --listen=0.0.0.0

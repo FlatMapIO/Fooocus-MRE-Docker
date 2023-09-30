@@ -1,0 +1,20 @@
+FROM huodon/pytorch-devcontainer:118
+
+USER vscode
+
+ENV PATH=:/home/vscode/.local/bin:$PATH
+
+WORKDIR /workspace/FooocusMRE
+
+RUN pip install \
+  psutil \
+  tqdm \
+  scipy \
+  Pillow \
+  pyyaml \
+  accelerate \
+  aiohttp \
+  safetensors \
+  transformers \
+  einops \
+  torchsde

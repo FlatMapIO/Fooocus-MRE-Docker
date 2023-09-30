@@ -1,19 +1,25 @@
 ## Commands
 
-- Run once
+- Prepare
+
+```
+scripts/prepare.fish
+```
+
+- Run once(debug)
 ```
 docker compose run --service-ports fooocus-mre
-
-# debug
-docker compose run --service-ports fooocus-mre bash
-
 open http://localhost:7860
+
+
+docker compose run --service-ports comfy-ui
 ```
 
 - Run as service
 
 ```
-docker compose up -d
+docker compose up comfy-ui -d
+docker compose up fooocus-mre -d
 ```
 
 # Links
