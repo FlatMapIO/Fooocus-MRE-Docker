@@ -1,3 +1,4 @@
+## Commands
 
 - Run once
 ```
@@ -14,3 +15,9 @@ open http://localhost:7860
 ```
 docker compose up -d
 ```
+
+# Links
+- Management & Build models folder using typescript: https://github.com/FlatMapIO/stable-diffusion-models
+- Fooocus-MRE: https://github.com/MoonRide303/Fooocus-MRE
+- Fooocus: https://github.com/lllyasviel/Fooocus
+- ComfyUI: https://github.com/comfyanonymous/ComfyUI/
