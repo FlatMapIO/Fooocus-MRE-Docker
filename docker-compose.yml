@@ -62,8 +62,9 @@ services:
       - ~/.codeium/:/home/vscode/.codeium
       # ====================================================================
       - ./ComfyUI:/workspace/ComfyUI
+      - ./mount/custom_nodes:/workspace/ComfyUI/custom_nodes
       - ./mount/models:/workspace/ComfyUI/models:ro
-      - ./mount/outputs:/workspace/ComfyUI/output:rw
+      - ./mount/outputs/ComfyUI:/workspace/ComfyUI/output:rw
     ports:
       - 8188:8188
     command: python main.py --listen=0.0.0.0

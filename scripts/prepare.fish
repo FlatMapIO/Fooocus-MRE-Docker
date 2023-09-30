@@ -11,9 +11,12 @@ function clone_up
 
     if not test -d $dir
         git clone --depth 1 $url $dir
+        echo "✅ $dir Cloned"
     else
         cd $dir
         git pull
+        echo "✅ $dir updated"
+        prevd
     end
 
 end
@@ -34,29 +37,33 @@ function install_fooocus_mre_comfyui
     prevd
 end
 
-function sync_prompt_expansion
+function fooocus_sync_prompt_expansion
 
     if not test -d ./mount/models
-        echo "Please link models folder to ./mount/models"
+        echo "❌ Please link models folder to ./mount/models"
         exit 1
     end
 
     rsync --ignore-existing -av \
         Fooocus-MRE/models/prompt_expansion/fooocus_expansion/ \
         mount/models/prompt_expansion/fooocus_expansion/
+    echo "✅ mount/models/prompt_expansion/fooocus_expansion/ synced"
 end
 
 function install_fooocus_mre
-  clone_up https://github.com/MoonRide303/Fooocus-MRE.git Fooocus-MRE
-  install_fooocus_mre_comfyui
-  sync_prompt_expansion
+    clone_up https://github.com/MoonRide303/Fooocus-MRE.git Fooocus-MRE
+    install_fooocus_mre_comfyui
+    fooocus_sync_prompt_expansion
 end
 
 
+
 function install_comfy_ui
-  clone_up https://github.com/comfyanonymous/ComfyUI.git ComfyUI
+    clone_up https://github.com/comfyanonymous/ComfyUI.git ComfyUI
+    # Custom nodes
+    clone_up https://github.com/ltdrdata/ComfyUI-Manager.git ./mount/custom_nodes/ComfyUI-Manager
+    clone_up https://github.com/ltdrdata/ComfyUI-Impact-Pack.git ./mount/custom_nodes/ComfyUI-Impact-Pack
 end
 
 install_fooocus_mre
 install_comfy_ui
-

@@ -6,7 +6,7 @@ ENV PATH=:/home/vscode/.local/bin:$PATH
 
 WORKDIR /workspace/FooocusMRE
 
-RUN pip install \
+RUN pip install --no-cache-dir \
   fastapi \
   pygit2 \
   gradio \

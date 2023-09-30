@@ -6,7 +6,26 @@ ENV PATH=:/home/vscode/.local/bin:$PATH
 
 WORKDIR /workspace/FooocusMRE
 
-RUN pip install \
+# resolve opencv dependency issue
+# https://saturncloud.io/blog/solving-importerror-libglso1-with-matplotlib-in-python/
+RUN apt update; \
+  apt install -y libgl1-mesa-glx; \
+  rm -rf /var/lib/apt/lists/*
+
+# https://github.com/ltdrdata/ComfyUI-Manager/blob/main/requirements.txt
+RUN pip install --no-cache-dir -r \
+  https://raw.githubusercontent.com/ltdrdata/ComfyUI-Impact-Pack/Main/requirements.txt; \
+  pip install --no-cache \
+    ultralytics \
+    openmim \
+    opencv-python-headless
+
+# https://github.com/ltdrdata/ComfyUI-Impact-Pack/blob/Main/requirements.txt
+RUN pip install --no-cache-dir -r \
+  https://raw.githubusercontent.com/ltdrdata/ComfyUI-Impact-Pack/Main/requirements.txt
+
+# ComfyUI
+RUN pip install --no-cache-dir \
   psutil \
   tqdm \
   scipy \
@@ -18,3 +37,4 @@ RUN pip install \
   transformers \
   einops \
   torchsde
+
