@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+  # test:
+  #   image: nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04
+  #   command: nvidia-smi
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             capabilities: [gpu]
+  fooocus-mre:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: fooocus-mre
+    user: vscode
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              # 该参数必须出现
+              count: all
+              capabilities: [gpu]
+    working_dir: /workspace/FooocusMRE
+    volumes:
+      - /mnt:/mnt
+      - ~/.cache:/home/vscode/.cache
+      - ~/.vscode-server:/home/vscode/.vscode-server
+      - ~/.vscode-server-insiders:/home/vscode/.vscode-server-insiders
+      - ~/.codeium/:/home/vscode/.codeium
+      # ====================================================================
+      - ./source:/workspace/FooocusMRE
+      - ./mount/repositories/:/workspace/FooocusMRE/repositories:ro
+      - ./mount/models:/workspace/FooocusMRE/models:ro
+      - ./mount/launch.py:/workspace/FooocusMRE/launch.py:ro
+      - ./mount/outputs:/workspace/FooocusMRE/outputs:rw
+    ports:
+      - 7860:7860
+    command: python launch.py
