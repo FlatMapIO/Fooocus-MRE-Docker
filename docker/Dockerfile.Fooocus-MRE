@@ -4,7 +4,7 @@ USER vscode
 
 ENV PATH=:/home/vscode/.local/bin:$PATH
 
-WORKDIR /workspace/FooocusMRE
+WORKDIR /workspace/Fooocus-MRE
 
 RUN pip install --no-cache-dir \
   fastapi \

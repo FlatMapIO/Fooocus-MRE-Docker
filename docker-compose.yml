@@ -23,7 +23,7 @@ services:
               # 该参数必须出现
               count: all
               capabilities: [gpu]
-    working_dir: /workspace/FooocusMRE
+    working_dir: /workspace/Fooocus-MRE
     volumes:
       - /mnt:/mnt
       - ~/.cache:/home/vscode/.cache
@@ -31,11 +31,11 @@ services:
       - ~/.vscode-server-insiders:/home/vscode/.vscode-server-insiders
       - ~/.codeium/:/home/vscode/.codeium
       # ====================================================================
-      - ./FooocusMRE:/workspace/FooocusMRE
-      - ./mount/repositories/:/workspace/FooocusMRE/repositories:ro
-      - ./mount/models:/workspace/FooocusMRE/models:ro
-      - ./mount/fooocus-mre-launch.py:/workspace/FooocusMRE/launch.py:ro
-      - ./mount/outputs:/workspace/FooocusMRE/outputs:rw
+      - ./Fooocus-MRE:/workspace/Fooocus-MRE
+      - ./mount/repositories/:/workspace/Fooocus-MRE/repositories:ro
+      - ./mount/models:/workspace/Fooocus-MRE/models:ro
+      - ./mount/fooocus-mre-launch.py:/workspace/Fooocus-MRE/launch.py:ro
+      - ./mount/outputs:/workspace/Fooocus-MRE/outputs:rw
     ports:
       - 7860:7860
     command: python launch.py
