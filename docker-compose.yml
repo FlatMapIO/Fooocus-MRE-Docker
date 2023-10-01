@@ -33,9 +33,9 @@ services:
       # ====================================================================
       - ./Fooocus-MRE:/workspace/Fooocus-MRE
       - ./mount/repositories/:/workspace/Fooocus-MRE/repositories:ro
-      - ./mount/models:/workspace/Fooocus-MRE/models:ro
       - ./mount/fooocus-mre-launch.py:/workspace/Fooocus-MRE/launch.py:ro
-      - ./mount/outputs:/workspace/Fooocus-MRE/outputs:rw
+      - ./mount/storage/models:/workspace/Fooocus-MRE/models:ro
+      - ./mount/storage/outputs:/workspace/Fooocus-MRE/outputs:rw
     ports:
       - 7860:7860
     command: python launch.py
@@ -63,8 +63,9 @@ services:
       # ====================================================================
       - ./ComfyUI:/workspace/ComfyUI
       - ./mount/custom_nodes:/workspace/ComfyUI/custom_nodes
-      - ./mount/models:/workspace/ComfyUI/models:ro
-      - ./mount/outputs/ComfyUI:/workspace/ComfyUI/output:rw
+      - ./mount/storage/models:/workspace/ComfyUI/models:rw
+      - ./mount/storage/outputs/ComfyUI:/workspace/ComfyUI/output:rw
+      - ./mount/storage/custom_nodes/ComfyUI_IPAdapter_plus/models:/workspace/ComfyUI/custom_nodes/ComfyUI_IPAdapter_plus/models:ro
     ports:
       - 8188:8188
     command: python main.py --listen=0.0.0.0

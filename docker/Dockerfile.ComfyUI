@@ -12,13 +12,16 @@ RUN sudo apt update; \
   sudo apt install -y libgl1-mesa-glx; \
   sudo rm -rf /var/lib/apt/lists/*
 
-# https://github.com/ltdrdata/ComfyUI-Manager/blob/main/requirements.txt
+RUN pip install --no-cache-dir -r \
+  https://raw.githubusercontent.com/WASasquatch/was-node-suite-comfyui/main/requirements.txt
+
+
 RUN pip install --no-cache-dir -r \
   https://raw.githubusercontent.com/ltdrdata/ComfyUI-Impact-Pack/Main/requirements.txt; \
   pip install --no-cache \
-    ultralytics \
-    openmim \
-    opencv-python
+  ultralytics \
+  openmim \
+  opencv-python
 
 RUN pip install --no-cache-dir -r \
   https://raw.githubusercontent.com/ltdrdata/ComfyUI-Inspire-Pack/main/requirements.txt
@@ -27,9 +30,11 @@ RUN pip install --no-cache-dir -r \
 RUN pip install --no-cache-dir -r \
   https://raw.githubusercontent.com/Fannovel16/comfyui_controlnet_aux/main/requirements.txt
 
-# https://github.com/ltdrdata/ComfyUI-Impact-Pack/blob/Main/requirements.txt
 RUN pip install --no-cache-dir -r \
   https://raw.githubusercontent.com/ltdrdata/ComfyUI-Impact-Pack/Main/requirements.txt
+
+RUN pip install --no-cache-dir -r \
+  https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/requirements.txt
 
 # ComfyUI
 RUN pip install --no-cache-dir -r \
