@@ -62,7 +62,7 @@ services:
       - ~/.codeium/:/home/vscode/.codeium
       # ====================================================================
       - ./ComfyUI:/workspace/ComfyUI
-      - ./mount/custom_nodes:/workspace/ComfyUI/custom_nodes
+      - ./mount/custom_nodes:/workspace/ComfyUI/custom_nodes:rw
       - ./mount/storage/models:/workspace/ComfyUI/models:rw
       - ./mount/storage/outputs/ComfyUI:/workspace/ComfyUI/output:rw
       - ./mount/storage/custom_nodes/ComfyUI_IPAdapter_plus/models:/workspace/ComfyUI/custom_nodes/ComfyUI_IPAdapter_plus/models:ro

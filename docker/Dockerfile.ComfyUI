@@ -13,10 +13,6 @@ RUN sudo apt update; \
   sudo rm -rf /var/lib/apt/lists/*
 
 RUN pip install --no-cache-dir -r \
-  https://raw.githubusercontent.com/WASasquatch/was-node-suite-comfyui/main/requirements.txt
-
-
-RUN pip install --no-cache-dir -r \
   https://raw.githubusercontent.com/ltdrdata/ComfyUI-Impact-Pack/Main/requirements.txt; \
   pip install --no-cache \
   ultralytics \
