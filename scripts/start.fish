@@ -13,9 +13,11 @@ end
 
 switch $argv[1]
   case 'ComfyUI'
-    docker compose run --service-ports comfy-ui
+    docker compose up -d comfy-ui
+    docker compose logs -f comfy-ui
   case 'Fooocus-MRE'
-    docker compose run --service-ports comfy-ui
+    docker compose up -d fooocus-mre
+    docker compose logs -f fooocus-mre
   case '*'
     usage
 end

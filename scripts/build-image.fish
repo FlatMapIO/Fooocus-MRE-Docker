@@ -2,7 +2,6 @@
 
 if test (count $argv) -ne 1
     echo "Usage: build-image.fish <ComfyUI|Fooocus-MRE>"
-    exit 1
 end
 
 set app (string lower $argv[1])
@@ -13,5 +12,6 @@ switch $app
     case fooocus-mre
         docker compose build fooocus-mre
     case '*'
+        echo "======= build all ======="
         docker compose build {comfy-ui, fooocus-mre}
 end
