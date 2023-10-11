@@ -1,19 +1,20 @@
 version: "3"
 
 services:
-  # test:
-  #   image: nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04
-  #   command: nvidia-smi
-  #   deploy:
-  #     resources:
-  #       reservations:
-  #         devices:
-  #           - driver: nvidia
-  #             capabilities: [gpu]
-  fooocus-mre:
+  gpu-test:
+    image: nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04
+    command: nvidia-smi
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+  fooocus:
     build:
       context: .
-      dockerfile: docker/Dockerfile.Fooocus-MRE
+      dockerfile: docker/Dockerfile.Fooocus
     user: vscode
     deploy:
       resources:
@@ -23,7 +24,7 @@ services:
               # 该参数必须出现
               count: all
               capabilities: [gpu]
-    working_dir: /workspace/Fooocus-MRE
+    working_dir: /app
     volumes:
       - /mnt:/mnt
       - ~/.cache:/home/vscode/.cache
@@ -31,14 +32,43 @@ services:
       - ~/.vscode-server-insiders:/home/vscode/.vscode-server-insiders
       - ~/.codeium/:/home/vscode/.codeium
       # ====================================================================
-      - ./Fooocus-MRE:/workspace/Fooocus-MRE
-      - ./mount/repositories/:/workspace/Fooocus-MRE/repositories:ro
-      - ./mount/fooocus-mre-launch.py:/workspace/Fooocus-MRE/launch.py:ro
-      - ./mount/storage/models:/workspace/Fooocus-MRE/models:ro
-      - ./mount/storage/outputs:/workspace/Fooocus-MRE/outputs:rw
+      - ./Fooocus:/app
+      - ./mount/Fooocus/repositories/:/app/repositories:ro
+      - ./mount/Fooocus/launch.py:/app/launch.py:ro
+      - ./mount/storage/models:/app/models:rw
+      - ./mount/storage/outputs:/app/outputs:rw
+    ports:
+      - 8188:8188
+    command: python launch.py --listen=0.0.0.0
+  fooocus-mre:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.Fooocus
+    user: vscode
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              # 该参数必须出现
+              count: all
+              capabilities: [gpu]
+    working_dir: /app
+    volumes:
+      - /mnt:/mnt
+      - ~/.cache:/home/vscode/.cache
+      - ~/.vscode-server:/home/vscode/.vscode-server
+      - ~/.vscode-server-insiders:/home/vscode/.vscode-server-insiders
+      - ~/.codeium/:/home/vscode/.codeium
+      # ====================================================================
+      - ./Fooocus-MRE:/app
+      - ./mount/Fooocus-MRE/repositories/:/app/repositories:ro
+      - ./mount/Fooocus-MRE/launch.py:/app/launch.py:ro
+      - ./mount/storage/models:/app/models:ro
+      - ./mount/storage/outputs:/app/outputs:rw
     ports:
       - 7860:7860
-    command: python launch.py
+    command: python launch.py --listen=0.0.0.0
 
   comfy-ui:
     build:
@@ -53,7 +83,7 @@ services:
               # 该参数必须出现
               count: all
               capabilities: [gpu]
-    working_dir: /workspace/ComfyUI
+    working_dir: /app
     volumes:
       - /mnt:/mnt
       - ~/.cache:/home/vscode/.cache
@@ -61,11 +91,12 @@ services:
       - ~/.vscode-server-insiders:/home/vscode/.vscode-server-insiders
       - ~/.codeium/:/home/vscode/.codeium
       # ====================================================================
-      - ./ComfyUI:/workspace/ComfyUI
-      - ./mount/custom_nodes:/workspace/ComfyUI/custom_nodes:rw
-      - ./mount/storage/models:/workspace/ComfyUI/models:rw
-      - ./mount/storage/outputs/ComfyUI:/workspace/ComfyUI/output:rw
-      - ./mount/storage/custom_nodes/ComfyUI_IPAdapter_plus/models:/workspace/ComfyUI/custom_nodes/ComfyUI_IPAdapter_plus/models:ro
+      - ./ComfyUI:/app
+      - ./mount/ComfyUI/custom_nodes:/app/custom_nodes:rw
+      - ./mount/ComfyUI/temp:/app/temp:rw
+      - ./mount/storage/models:/app/models:rw
+      - ./mount/storage/outputs/ComfyUI:/app/output:rw
+      - ./mount/storage/custom_nodes/ComfyUI_IPAdapter_plus/models:/app/custom_nodes/ComfyUI_IPAdapter_plus/models:ro
     ports:
       - 8188:8188
     command: python main.py --listen=0.0.0.0

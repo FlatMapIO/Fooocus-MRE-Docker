@@ -4,7 +4,7 @@ USER vscode
 
 ENV PATH=:/home/vscode/.local/bin:$PATH
 
-WORKDIR /workspace/ComfyUI
+WORKDIR /app
 
 # resolve opencv dependency issue
 # https://www.cnblogs.com/niuben/p/17587591.html
