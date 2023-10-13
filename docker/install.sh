@@ -4,7 +4,7 @@ sudo sed -i 's/archive.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sourc
 
 sudo apt update
 
-sudo apt install -y libgl1-mesa-dev libglib2.0-0; \
+sudo apt install -y libgl1-mesa-dev libglib2.0-0
 
 sudo rm -rf /var/lib/apt/lists/*
 

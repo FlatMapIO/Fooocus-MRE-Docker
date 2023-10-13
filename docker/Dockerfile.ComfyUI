@@ -1,4 +1,4 @@
-FROM huodon/pytorch-devcontainer:118
+FROM huodon/pytorch-devcontainer:121
 
 USER vscode
 
