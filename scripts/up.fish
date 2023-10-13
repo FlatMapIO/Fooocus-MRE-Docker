@@ -13,12 +13,12 @@ function clone_up
     set dir $argv[2]
 
     if not test -d $dir
-        git clone --depth 1 $url $dir
+        git clone --recursive $url $dir
         echo "✅ $dir Cloned"
     else
         cd $dir
         echo ">>> pulling $dir"
-        git pull
+        git pull --recurse-submodules
         echo "✅ $dir updated"
         prevd
     end
@@ -59,9 +59,7 @@ function install_comfy_ui
 
     set -l dir  mount/ComfyUI/custom_nodes
 
-
     clone_up https://github.com/ltdrdata/ComfyUI-Manager.git $dir/ComfyUI-Manager
-
 
     # Custom nodes
     clone_up https://github.com/ltdrdata/ComfyUI-Impact-Pack.git $dir/ComfyUI-Impact-Pack
@@ -77,8 +75,11 @@ function install_comfy_ui
     clone_up https://github.com/chrisgoringe/cg-image-picker.git $dir/cg-image-picker
     clone_up https://github.com/ssitu/ComfyUI_UltimateSDUpscale.git $dir/ComfyUI_UltimateSDUpscale
     clone_up https://github.com/LucianoCirino/efficiency-nodes-comfyui.git $dir/efficiency-nodes-comfyui
-
-
+    clone_up https://github.com/ali1234/comfyui-job-iterator.git $dir/comfyui-job-iterator
+    clone_up https://github.com/tusharbhutt/Endless-Nodes.git $dir/Endless-Nodes
+    clone_up https://github.com/BlenderNeko/ComfyUI_Cutoff.git $dir/ComfyUI_Cutoff
+    clone_up https://github.com/BlenderNeko/ComfyUI_TiledKSampler.git $dir/ComfyUI_TiledKSampler
+    clone_up https://github.com/ltdrdata/ComfyUI-Workflow-Component.git $dir/ComfyUI-Workflow-Component
 end
 
 install_fooocus

@@ -31,6 +31,9 @@ RUN pip install --no-cache-dir -r \
 RUN pip install --no-cache-dir -r \
   https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/requirements.txt
 
+RUN pip install --no-cache-dir -r \
+  https://raw.githubusercontent.com/LucianoCirino/efficiency-nodes-comfyui/main/requirements.txt
+
 # ComfyUI
 RUN pip install --no-cache-dir -r \
   https://raw.githubusercontent.com/comfyanonymous/ComfyUI/master/requirements.txt
