@@ -3,14 +3,13 @@ FROM huodon/pytorch-devcontainer:118
 USER vscode
 
 ENV PATH=:/home/vscode/.local/bin:$PATH
-
 WORKDIR /app
 
-# resolve opencv dependency issue
-# https://www.cnblogs.com/niuben/p/17587591.html
-RUN sudo apt update; \
-  sudo apt install -y libgl1-mesa-glx; \
-  sudo rm -rf /var/lib/apt/lists/*
+
+
+COPY ./docker/install.sh .
+
+RUN bash ./install.sh
 
 RUN pip install --no-cache-dir -r \
   https://raw.githubusercontent.com/ltdrdata/ComfyUI-Impact-Pack/Main/requirements.txt; \

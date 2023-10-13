@@ -103,7 +103,9 @@ end
 function install_comfy_ui
     clone_up https://github.com/comfyanonymous/ComfyUI.git ComfyUI
 
-    set -l dir  $dir
+    set -l dir  mount/ComfyUI/custom_nodes
+
+
     clone_up https://github.com/ltdrdata/ComfyUI-Manager.git $dir/ComfyUI-Manager
 
 
