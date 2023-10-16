@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "Codeium.codeium",
+    "ms-python.black-formatter",
+    "bmalehorn.vscode-fish",
+    "mhutchie.git-graph",
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-toolsai.jupyter",
+  ]
+}
