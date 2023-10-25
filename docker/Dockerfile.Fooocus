@@ -6,9 +6,9 @@ ENV PATH=:/home/vscode/.local/bin:$PATH
 
 WORKDIR /app
 
-COPY ./docker/install.sh .
+COPY ./docker/install-shared.sh .
 
-RUN bash ./install.sh
+RUN bash ./install-shared.sh
 
-RUN pip install --no-cache-dir -r \
+RUN pip install --user --no-cache-dir -r \
   https://raw.githubusercontent.com/lllyasviel/Fooocus/main/requirements_versions.txt

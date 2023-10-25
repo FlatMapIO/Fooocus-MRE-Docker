@@ -6,16 +6,19 @@ function usage
     exit 1
 end
 
-if test (count $argv) -ne 1
-  usage
-end
-
-
 function up
   set -l app $argv[1]
   docker compose up -d $app
   docker compose logs -f $app
 end
 
+docker compose stop
 
-up $argv[1]
+switch "$argv[1]"
+  case comfy-ui
+    up comfy-ui
+  case fooocus
+    up fooocus
+  case '*'
+    usage
+end

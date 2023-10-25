@@ -38,21 +38,18 @@ function ensure_dir
 end
 
 
-function fooocus_postinstall
-    ensure_dir mount/Fooocus/repositories
-
-    rsync -av \
-        Fooocus/models/prompt_expansion/fooocus_expansion/ \
-        mount/storage/models/prompt_expansion/fooocus_expansion/
-    echo "✅ models/prompt_expansion/fooocus_expansion synced"
-end
+# function fooocus_postinstall
+#     rsync -av \
+#         Fooocus/models/prompt_expansion/fooocus_expansion/ \
+#         mount/storage/models/prompt_expansion/fooocus_expansion/
+#     echo "✅ models/prompt_expansion/fooocus_expansion synced"
+# end
 
 function install_fooocus
     clone_up https://github.com/lllyasviel/Fooocus.git Fooocus
 
-    fooocus_postinstall
+    # fooocus_postinstall
 end
-
 
 function install_comfy_ui
     clone_up https://github.com/comfyanonymous/ComfyUI.git ComfyUI

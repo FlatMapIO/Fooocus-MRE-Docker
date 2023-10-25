@@ -9,7 +9,7 @@ set app (string lower $argv[1])
 alias b 'docker compose build'
 
 switch $app
-    case comfyui
+    case comfy-ui
         b comfy-ui
     case fooocus
         b fooocus

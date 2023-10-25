@@ -33,41 +33,56 @@ services:
       - ~/.codeium/:/home/vscode/.codeium
       # ====================================================================
       - ./Fooocus:/app
-      - ./mount/Fooocus/repositories/:/app/repositories:ro
-      - ./mount/storage/models:/app/models:rw
+
       - ./mount/storage/outputs:/app/outputs:rw
+      - ./mount/storage/models/annotators /app/models/annotators
+      - ./mount/storage/models/checkpoints /app/models/checkpoints
+      - ./mount/storage/models/clip_vision /app/models/clip_vision
+      - ./mount/storage/models/controlnet /app/models/controlnet
+      - ./mount/storage/models/embeddings /app/models/embeddings
+      - ./mount/storage/models/gligen /app/models/gligen
+      - ./mount/storage/models/inpaint /app/models/inpaint
+      - ./mount/storage/models/loras /app/models/loras
+      - ./mount/storage/models/mmdets /app/models/mmdets
+      - ./mount/storage/models/onnx /app/models/onnx
+      - ./mount/storage/models/sams /app/models/sams
+      - ./mount/storage/models/style_models /app/models/style_models
+      - ./mount/storage/models/ultralytics /app/models/ultralytics
+      - ./mount/storage/models/upscale_models /app/models/upscale_models
+      - ./mount/storage/models/vae_approx /app/models/vae_approx
+
     ports:
       - 7860:7860
     command: python launch.py --listen=0.0.0.0
-  fooocus-mre:
-    build:
-      context: .
-      dockerfile: docker/Dockerfile.Fooocus
-    user: vscode
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              # 该参数必须出现
-              count: all
-              capabilities: [gpu]
-    working_dir: /app
-    volumes:
-      - /mnt:/mnt
-      - ~/.cache:/home/vscode/.cache
-      - ~/.vscode-server:/home/vscode/.vscode-server
-      - ~/.vscode-server-insiders:/home/vscode/.vscode-server-insiders
-      - ~/.codeium/:/home/vscode/.codeium
-      # ====================================================================
-      - ./Fooocus-MRE:/app
-      - ./mount/Fooocus-MRE/repositories/:/app/repositories:ro
-      - ./mount/Fooocus-MRE/launch.py:/app/launch.py:ro
-      - ./mount/storage/models:/app/models:ro
-      - ./mount/storage/outputs:/app/outputs:rw
-    ports:
-      - 7860:7860
-    command: python launch.py --listen=0.0.0.0
+  # fooocus-mre:
+    # build:
+    #   context: .
+    #   dockerfile: docker/Dockerfile.Fooocus
+    # user: vscode
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           # 该参数必须出现
+    #           count: all
+    #           capabilities: [gpu]
+    # working_dir: /app
+    # volumes:
+    #   - /mnt:/mnt
+    #   - ~/.cache:/home/vscode/.cache
+    #   - ~/.vscode-server:/home/vscode/.vscode-server
+    #   - ~/.vscode-server-insiders:/home/vscode/.vscode-server-insiders
+    #   - ~/.codeium/:/home/vscode/.codeium
+    #   # ====================================================================
+    #   - ./Fooocus-MRE:/app
+    #   - ./mount/Fooocus-MRE/repositories/:/app/repositories:ro
+    #   - ./mount/Fooocus-MRE/launch.py:/app/launch.py:ro
+    #   - ./mount/storage/models:/app/models:ro
+    #   - ./mount/storage/outputs:/app/outputs:rw
+    # ports:
+    #   - 7860:7860
+    # command: python launch.py --listen=0.0.0.0
 
   comfy-ui:
     build:
