@@ -76,7 +76,7 @@ function install_comfy_ui
     clone_up https://github.com/tusharbhutt/Endless-Nodes.git $dir/Endless-Nodes
     clone_up https://github.com/BlenderNeko/ComfyUI_Cutoff.git $dir/ComfyUI_Cutoff
     clone_up https://github.com/BlenderNeko/ComfyUI_TiledKSampler.git $dir/ComfyUI_TiledKSampler
-    clone_up https://github.com/ltdrdata/ComfyUI-Workflow-Component.git $dir/ComfyUI-Workflow-Component
+    # clone_up https://github.com/ltdrdata/ComfyUI-Workflow-Component.git $dir/ComfyUI-Workflow-Component
 end
 
 install_fooocus
