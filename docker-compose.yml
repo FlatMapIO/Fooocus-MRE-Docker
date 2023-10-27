@@ -107,9 +107,9 @@ services:
       # ====================================================================
       - ./ComfyUI:/app:rw
       - ./mount/ComfyUI/custom_nodes:/app/custom_nodes:rw
-      - ./mount/custom_nodes/ComfyUI_IPAdapter_plus/models:/app/custom_nodes/ComfyUI_IPAdapter_plus/models
       - ./mount/ComfyUI/temp:/app/temp:rw
       - ./mount/storage/models:/app/models:rw
+      - ./mount/storage/custom_nodes/ComfyUI_IPAdapter_plus/models:/app/custom_nodes/ComfyUI_IPAdapter_plus/models
       - ./mount/storage/outputs/ComfyUI:/app/output:rw
     ports:
       - 8188:8188
