@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 if test (count $argv) -ne 1
-    echo "Usage: build-image.fish <ComfyUI|Fooocus|Fooocus-MRE>"
+    echo "Usage: build-image.fish <ComfyUI|Fooocus>"
 end
 
 set app (string lower $argv[1])
