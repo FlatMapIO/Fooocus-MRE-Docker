@@ -33,28 +33,14 @@ services:
       - ~/.codeium/:/home/vscode/.codeium
       # ====================================================================
       - ./Fooocus:/app
-
+      - ./mount/storage/models/:/app/models/
+      - ./Fooocus/models/configs:/app/models/configs
+      - ./Fooocus/models/prompt_expansion:/app/models/prompt_expansion
       - ./mount/storage/outputs:/app/outputs:rw
-      - ./mount/storage/models/annotators /app/models/annotators
-      - ./mount/storage/models/checkpoints /app/models/checkpoints
-      - ./mount/storage/models/clip_vision /app/models/clip_vision
-      - ./mount/storage/models/controlnet /app/models/controlnet
-      - ./mount/storage/models/embeddings /app/models/embeddings
-      - ./mount/storage/models/gligen /app/models/gligen
-      - ./mount/storage/models/inpaint /app/models/inpaint
-      - ./mount/storage/models/loras /app/models/loras
-      - ./mount/storage/models/mmdets /app/models/mmdets
-      - ./mount/storage/models/onnx /app/models/onnx
-      - ./mount/storage/models/sams /app/models/sams
-      - ./mount/storage/models/style_models /app/models/style_models
-      - ./mount/storage/models/ultralytics /app/models/ultralytics
-      - ./mount/storage/models/upscale_models /app/models/upscale_models
-      - ./mount/storage/models/vae_approx /app/models/vae_approx
 
     ports:
       - 7860:7860
     command: python launch.py --listen=0.0.0.0
-
   comfy-ui:
     build:
       context: .
