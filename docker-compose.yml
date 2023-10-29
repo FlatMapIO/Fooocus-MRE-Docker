@@ -27,6 +27,7 @@ services:
     working_dir: /app
     volumes:
       - /mnt:/mnt
+      - ~/.config:/home/vscode/.config
       - ~/.cache:/home/vscode/.cache
       - ~/.vscode-server:/home/vscode/.vscode-server
       - ~/.vscode-server-insiders:/home/vscode/.vscode-server-insiders
@@ -57,6 +58,7 @@ services:
     working_dir: /app
     volumes:
       - /mnt:/mnt
+      - ~/.config:/home/vscode/.config
       - ~/.cache:/home/vscode/.cache
       - ~/.vscode-server:/home/vscode/.vscode-server
       - ~/.vscode-server-insiders:/home/vscode/.vscode-server-insiders
