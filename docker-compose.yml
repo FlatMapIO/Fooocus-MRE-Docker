@@ -41,7 +41,7 @@ services:
 
     ports:
       - 7860:7860
-    command: python launch.py --listen=0.0.0.0
+    command: python3 launch.py --listen=0.0.0.0
   comfy-ui:
     build:
       context: .
@@ -72,4 +72,4 @@ services:
       - ./mount/storage/outputs/ComfyUI:/app/output:rw
     ports:
       - 8188:8188
-    command: python main.py --listen=0.0.0.0
+    command: python3 main.py --listen=0.0.0.0

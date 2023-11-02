@@ -1,4 +1,4 @@
-FROM huodon/pytorch-devcontainer:121
+FROM huodon/cuda-devel:12.1.1
 
 USER vscode
 
@@ -7,11 +7,13 @@ WORKDIR /app
 
 COPY ./docker/install-shared.sh .
 COPY ./docker/install-comfyui.sh .
+COPY --chown=vscode ./docker/build ./build
+
 
 RUN bash ./install-shared.sh
 RUN bash ./install-comfyui.sh
+RUN rm -rf ./build
 
 # ComfyUI
 RUN pip install --user --no-cache-dir -r \
   https://raw.githubusercontent.com/comfyanonymous/ComfyUI/master/requirements.txt
-

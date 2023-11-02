@@ -1,7 +1,7 @@
 #!/usr/bin/env  bash
 
 function pip_install() {
-  pip install --user --no-cache-dir ${@}
+  pip3 install --user --no-cache-dir ${@}
 }
 
 pip_install -r https://raw.githubusercontent.com/ltdrdata/ComfyUI-Impact-Pack/Main/requirements.txt
@@ -18,6 +18,6 @@ pip_install \
   ultralytics \
   openmim \
   opencv-python \
-  onnxruntime \
   image-reward \
-  pytorch-lightning
+  pytorch-lightning \
+  ./build/*.whl

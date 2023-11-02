@@ -63,7 +63,10 @@ function install_comfy_ui
     clone_up https://github.com/shingo1228/ComfyUI-SDXL-EmptyLatentImage.git $dir/ComfyUI-SDXL-EmptyLatentImage
     clone_up https://github.com/ltdrdata/ComfyUI-Inspire-Pack.git $dir/ComfyUI-Inspire-Pack
     clone_up https://github.com/Fannovel16/comfyui_controlnet_aux.git $dir/comfyui_controlnet_aux
-    clone_up https://github.com/ssitu/ComfyUI_restart_sampling $dir/ComfyUI_restart_sampling
+
+    # broken
+    # clone_up https://github.com/ssitu/ComfyUI_restart_sampling $dir/ComfyUI_restart_sampling
+
     clone_up https://github.com/hylarucoder/comfyui-copilot.git $dir/comfyui-copilot
     clone_up https://github.com/cubiq/ComfyUI_IPAdapter_plus.git $dir/ComfyUI_IPAdapter_plus
     clone_up https://github.com/SeargeDP/SeargeSDXL.git $dir/SeargeSDXL

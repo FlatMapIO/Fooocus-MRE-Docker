@@ -2,7 +2,7 @@
 
 
 function usage
-    echo "Usage: start.fish comfy-ui|fooocus|fooocis-mre"
+    echo "Usage: start.fish comfy-ui|fooocus"
     exit 1
 end
 

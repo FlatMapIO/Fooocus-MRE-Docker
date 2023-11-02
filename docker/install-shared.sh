@@ -8,5 +8,5 @@ sudo apt install -y libgl1-mesa-dev libglib2.0-0
 
 sudo rm -rf /var/lib/apt/lists/*
 
-pip install --upgrade pip
-pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+pip3 install --upgrade pip
+pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
