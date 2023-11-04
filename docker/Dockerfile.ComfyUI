@@ -6,14 +6,23 @@ ENV PATH=:/home/vscode/.local/bin:$PATH
 WORKDIR /app
 
 COPY ./docker/install-shared.sh .
-COPY ./docker/install-comfyui.sh .
-COPY --chown=vscode ./docker/build ./build
-
-
 RUN bash ./install-shared.sh
-RUN bash ./install-comfyui.sh
-RUN rm -rf ./build
+
+
+COPY ./docker/comfy-custom_nodes-requirements.txt .
+RUN pip install --user --no-cache-dir -r \
+  ./comfy-custom_nodes-requirements.txt
+
+RUN pip3 install --user --no-cache-dir  \
+  openmim \
+  git+https://github.com/openai/CLIP.git \
+  git+https://github.com/THUDM/ImageReward.git \
+  pytorch-lightning
+
+COPY --chown=vscode ./docker/build ./build
+RUN pip3 install --user --no-cache-dir -r ./build/*.whl; \
+  rm -rf ./build
 
 # ComfyUI
-RUN pip install --user --no-cache-dir -r \
+RUN pip install --user --no-cache-dir --upgrade -r \
   https://raw.githubusercontent.com/comfyanonymous/ComfyUI/master/requirements.txt

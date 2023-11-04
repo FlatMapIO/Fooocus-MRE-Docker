@@ -64,9 +64,16 @@ function install_comfy_ui
     clone_up https://github.com/ltdrdata/ComfyUI-Inspire-Pack.git $dir/ComfyUI-Inspire-Pack
     clone_up https://github.com/Fannovel16/comfyui_controlnet_aux.git $dir/comfyui_controlnet_aux
 
+    clone_up https://github.com/wallish77/wlsh_nodes.git $dir/wlsh_nodes
+    clone_up https://github.com/failfa-st/failfast-comfyui-extensions.git $dir/failfast-comfyui-extensions
+    clone_up https://github.com/TinyTerra/ComfyUI_tinyterraNodes.git $dir/ComfyUI_tinyterraNodes
+    clone_up https://github.com/EllangoK/ComfyUI-post-processing-nodes.git $dir/ComfyUI-post-processing-nodes
+    clone_up https://github.com/WASasquatch/was-node-suite-comfyui.git $dir/was-node-suite-comfyui
+    clone_up https://github.com/RockOfFire/ComfyUI_Comfyroll_CustomNodes.git $dir/ComfyUI_Comfyroll_CustomNodes
+    clone_up https://github.com/mav-rik/facerestore_cf.git $dir/facerestore_cf
     # broken
     # clone_up https://github.com/ssitu/ComfyUI_restart_sampling $dir/ComfyUI_restart_sampling
-
+    clone_up https://github.com/Stability-AI/stability-ComfyUI-nodes.git $dir/stability-ComfyUI-nodes
     clone_up https://github.com/hylarucoder/comfyui-copilot.git $dir/comfyui-copilot
     clone_up https://github.com/cubiq/ComfyUI_IPAdapter_plus.git $dir/ComfyUI_IPAdapter_plus
     clone_up https://github.com/SeargeDP/SeargeSDXL.git $dir/SeargeSDXL
@@ -79,6 +86,8 @@ function install_comfy_ui
     clone_up https://github.com/tusharbhutt/Endless-Nodes.git $dir/Endless-Nodes
     clone_up https://github.com/BlenderNeko/ComfyUI_Cutoff.git $dir/ComfyUI_Cutoff
     clone_up https://github.com/BlenderNeko/ComfyUI_TiledKSampler.git $dir/ComfyUI_TiledKSampler
+    clone_up https://github.com/rgthree/rgthree-comfy.git $dir/rgthree-comfy
+
     # clone_up https://github.com/ltdrdata/ComfyUI-Workflow-Component.git $dir/ComfyUI-Workflow-Component
 end
 
