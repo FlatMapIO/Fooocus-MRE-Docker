@@ -54,7 +54,7 @@ end
 function install_comfy_ui
     clone_up https://github.com/comfyanonymous/ComfyUI.git ComfyUI
 
-    set -l dir  mount/ComfyUI/custom_nodes
+    set -l dir mount/ComfyUI/custom_nodes
 
     clone_up https://github.com/ltdrdata/ComfyUI-Manager.git $dir/ComfyUI-Manager
 
@@ -72,7 +72,7 @@ function install_comfy_ui
     clone_up https://github.com/RockOfFire/ComfyUI_Comfyroll_CustomNodes.git $dir/ComfyUI_Comfyroll_CustomNodes
     clone_up https://github.com/mav-rik/facerestore_cf.git $dir/facerestore_cf
     # broken
-    # clone_up https://github.com/ssitu/ComfyUI_restart_sampling $dir/ComfyUI_restart_sampling
+    clone_up https://github.com/ssitu/ComfyUI_restart_sampling $dir/ComfyUI_restart_sampling
     clone_up https://github.com/Stability-AI/stability-ComfyUI-nodes.git $dir/stability-ComfyUI-nodes
     clone_up https://github.com/hylarucoder/comfyui-copilot.git $dir/comfyui-copilot
     clone_up https://github.com/cubiq/ComfyUI_IPAdapter_plus.git $dir/ComfyUI_IPAdapter_plus
@@ -81,7 +81,7 @@ function install_comfy_ui
     clone_up https://github.com/ssitu/ComfyUI_fabric $dir/ComfyUI_fabric
     clone_up https://github.com/chrisgoringe/cg-image-picker.git $dir/cg-image-picker
     clone_up https://github.com/ssitu/ComfyUI_UltimateSDUpscale.git $dir/ComfyUI_UltimateSDUpscale
-    clone_up https://github.com/LucianoCirino/efficiency-nodes-comfyui.git $dir/efficiency-nodes-comfyui
+    clone_up https://github.com/jags111/efficiency-nodes-comfyui.git $dir/efficiency-nodes-comfyui
     clone_up https://github.com/ali1234/comfyui-job-iterator.git $dir/comfyui-job-iterator
     clone_up https://github.com/tusharbhutt/Endless-Nodes.git $dir/Endless-Nodes
     clone_up https://github.com/BlenderNeko/ComfyUI_Cutoff.git $dir/ComfyUI_Cutoff
