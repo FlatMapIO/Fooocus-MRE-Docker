@@ -1,0 +1,5 @@
+python-bidi
+openmim
+pytorch-lightning
+git+https://github.com/openai/CLIP.git
+git+https://github.com/THUDM/ImageReward.git

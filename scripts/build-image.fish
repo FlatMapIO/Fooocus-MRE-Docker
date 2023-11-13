@@ -11,7 +11,7 @@ alias b 'docker compose build'
 switch $app
 case deps
     awk 'FNR==1{print ""}1' mount/ComfyUI/custom_nodes/**/requirements.txt > tmp.txt
-    cat tmp.txt | sort | uniq > mount/ComfyUI/custom_nodes/comfy-custom_nodes-requirements.txt
+    cat tmp.txt | sort | uniq > docker/comfy-nodes-requirements.txt
     rm tmp.txt
 case comfy-ui
     b comfy-ui

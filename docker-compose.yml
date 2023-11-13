@@ -46,7 +46,7 @@ services:
     build:
       context: .
       dockerfile: docker/Dockerfile.ComfyUI
-    user: vscode
+    user: sa
     deploy:
       resources:
         reservations:
@@ -58,11 +58,11 @@ services:
     working_dir: /app
     volumes:
       - /mnt:/mnt
-      - ~/.config:/home/vscode/.config
-      - ~/.cache:/home/vscode/.cache
-      - ~/.vscode-server:/home/vscode/.vscode-server
-      - ~/.vscode-server-insiders:/home/vscode/.vscode-server-insiders
-      - ~/.codeium/:/home/vscode/.codeium
+      - ~/.config:/home/sa/.config
+      - ~/.cache:/home/sa/.cache
+      - ~/.vscode-server:/home/sa/.vscode-server
+      - ~/.vscode-server-insiders:/home/sa/.vscode-server-insiders
+      - ~/.codeium/:/home/sa/.codeium
       # ====================================================================
       - ./ComfyUI:/app:rw
       - ./mount/ComfyUI/custom_nodes:/app/custom_nodes:rw

@@ -87,6 +87,7 @@ function install_comfy_ui
     clone_up https://github.com/BlenderNeko/ComfyUI_Cutoff.git $dir/ComfyUI_Cutoff
     clone_up https://github.com/BlenderNeko/ComfyUI_TiledKSampler.git $dir/ComfyUI_TiledKSampler
     clone_up https://github.com/rgthree/rgthree-comfy.git $dir/rgthree-comfy
+    clone_up https://github.com/martijnat/comfyui-previewlatent.git $dir/comfyui-previewlatent
 
     # clone_up https://github.com/ltdrdata/ComfyUI-Workflow-Component.git $dir/ComfyUI-Workflow-Component
 end

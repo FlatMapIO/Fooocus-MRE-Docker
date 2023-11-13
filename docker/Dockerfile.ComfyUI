@@ -8,21 +8,18 @@ WORKDIR /app
 COPY ./docker/install-shared.sh .
 RUN bash ./install-shared.sh
 
+COPY ./docker/comfy-nodes-requirements.txt .
+RUN pip3 install --user --no-cache-dir -r \
+  ./comfy-nodes-requirements.txt
 
-COPY ./docker/comfy-custom_nodes-requirements.txt .
-RUN pip install --user --no-cache-dir -r \
-  ./comfy-custom_nodes-requirements.txt
+COPY ./docker/comfy-extra-requirements.txt .
+RUN pip3 install --user --no-cache-dir -r \
+  ./comfy-extra-requirements.txt
 
-RUN pip3 install --user --no-cache-dir  \
-  openmim \
-  git+https://github.com/openai/CLIP.git \
-  git+https://github.com/THUDM/ImageReward.git \
-  pytorch-lightning
-
-COPY --chown=vscode ./docker/build ./build
+COPY --chown=sa ./docker/build ./build
 RUN pip3 install --user --no-cache-dir -r ./build/*.whl; \
   rm -rf ./build
 
 # ComfyUI
-RUN pip install --user --no-cache-dir --upgrade -r \
+RUN pip3 install --user --no-cache-dir --upgrade -r \
   https://raw.githubusercontent.com/comfyanonymous/ComfyUI/master/requirements.txt

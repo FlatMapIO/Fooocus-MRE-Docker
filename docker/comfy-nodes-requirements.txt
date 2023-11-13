@@ -1,8 +1,10 @@
-GitPython
-Pillow
 addict
+clip-interrogator
+# cmake
 cmake
 colorama
+# conda install -c conda-forge dlib
+# dlib
 einops
 fairscale>=0.4.4
 filelock
@@ -14,6 +16,7 @@ git+https://github.com/WASasquatch/cstr
 git+https://github.com/WASasquatch/ffmpy.git
 git+https://github.com/WASasquatch/img2texture.git
 gitpython
+GitPython
 huggingface_hub
 imageio
 importlib_metadata
@@ -21,6 +24,7 @@ joblib
 lmdb
 lpips
 matplotlib
+matrix-client==0.4.0
 mediapipe
 numba
 numpy
@@ -28,6 +32,7 @@ omegaconf
 opencv-python
 piexif
 pilgram
+Pillow
 python-dateutil
 pyyaml
 rembg
@@ -38,6 +43,7 @@ scipy
 segment-anything
 simpleeval
 svglib
-timm>=0.4.12
-ultralytics!=8.0.177
+timm
+tqdm
+ultralytics
 yapf
