@@ -1,6 +1,6 @@
 FROM huodon/cuda-devel:12.1.1
 
-USER vscode
+USER sa
 
 ENV PATH=:/home/vscode/.local/bin:$PATH
 WORKDIR /app
