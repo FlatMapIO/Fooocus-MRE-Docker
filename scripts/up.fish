@@ -58,12 +58,21 @@ function install_comfy_ui
 
     clone_up https://github.com/ltdrdata/ComfyUI-Manager.git $dir/ComfyUI-Manager
 
+    # video
+    clone_up https://github.com/Kosinkadink/ComfyUI-AnimateDiff-Evolved.git $dir/ComfyUI-AnimateDiff-Evolved
+    clone_up https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite $dir/ComfyUI-VideoHelperSuite
+
+    # Face Swap
+    clone_up https://github.com/Gourieff/comfyui-reactor-node.git $dir/comfyui-reactor-node
+
+
     # Custom nodes
     clone_up https://github.com/ltdrdata/ComfyUI-Impact-Pack.git $dir/ComfyUI-Impact-Pack
     clone_up https://github.com/shingo1228/ComfyUI-SDXL-EmptyLatentImage.git $dir/ComfyUI-SDXL-EmptyLatentImage
     clone_up https://github.com/ltdrdata/ComfyUI-Inspire-Pack.git $dir/ComfyUI-Inspire-Pack
     clone_up https://github.com/Fannovel16/comfyui_controlnet_aux.git $dir/comfyui_controlnet_aux
 
+    clone_up https://github.com/Ttl/ComfyUi_NNLatentUpscale.git $dir/ComfyUi_NNLatentUpscale
     clone_up https://github.com/wallish77/wlsh_nodes.git $dir/wlsh_nodes
     clone_up https://github.com/failfa-st/failfast-comfyui-extensions.git $dir/failfast-comfyui-extensions
     clone_up https://github.com/TinyTerra/ComfyUI_tinyterraNodes.git $dir/ComfyUI_tinyterraNodes
@@ -89,7 +98,15 @@ function install_comfy_ui
     clone_up https://github.com/rgthree/rgthree-comfy.git $dir/rgthree-comfy
     clone_up https://github.com/martijnat/comfyui-previewlatent.git $dir/comfyui-previewlatent
 
+    clone_up https://github.com/Kosinkadink/ComfyUI-AnimateDiff-Evolved.git $dir/ComfyUI-AnimateDiff-Evolved
+    clone_up https://github.com/shiimizu/ComfyUI_smZNodes.git $dir/ComfyUI_smZNodes
+    clone_up https://github.com/kijai/ComfyUI-KJNodes.git $dir/ComfyUI-KJNodes
+    clone_up https://github.com/toyxyz/ComfyUI_toyxyz_test_nodes.git $dir/ComfyUI_toyxyz_test_nodes
+
     # clone_up https://github.com/ltdrdata/ComfyUI-Workflow-Component.git $dir/ComfyUI-Workflow-Component
+    #
+    #
+    clone_up https://github.com/thecooltechguy/ComfyUI-Stable-Video-Diffusion.git $dir/ComfyUI-Stable-Video-Diffusion
 end
 
 install_fooocus
